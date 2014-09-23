@@ -5,8 +5,8 @@ describe Board do
 	let(:board) {Board.new}
 	let(:square) {double :square}
 
-	it "should hold squares" do
-		expect(board.squares).to eq([])
+	it "should have coordinates" do
+		expect(board.coordinates).class == hash
 	end
 
 	it "should accept shots" do 
