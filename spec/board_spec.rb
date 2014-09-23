@@ -14,8 +14,8 @@ describe Board do
 		board.shot(square)
 	end
 
-	it "should have 1 coordinate that corresponds to 1 square" do
-		
+	it "should have coordinates that correspond to squares" do
+		board.coordinates["A1"].class == square
 	end
 	
 end
