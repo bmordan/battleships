@@ -4,6 +4,7 @@ attr_accessor :occupied
 
 	def initialize
 		@occupied = false
+		@shot = false
 	end
 
 	def occupied?
@@ -12,6 +13,14 @@ attr_accessor :occupied
 
 	def occupy
 		@occupied = true
+	end
+
+	def shot?
+		@shot == true
+	end
+
+	def shot!
+		@shot = true
 	end
 
 end

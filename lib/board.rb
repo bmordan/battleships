@@ -1,30 +1,30 @@
 class Board
 
 	def initialize
-		@coordinates = Hash[square_names.flatten.map {|name, square| [name, Square.new]}]
-	end
-
-	def shot(coordinate)
-		raise 'You already chose that coordinate.' if @coordinates[coordinate].shot?
-
-		if @coordinates[coordinate].occupied?
-			ship.delete(coordinate)
-			puts "Hit."
-			@coordinates[coordinate].shot!
-		else
-			puts "Miss."
-			@coordinates[coordinate].shot!
-		end
+		@grid = Hash[square_names.flatten.map {|name, square| [name, Square.new]}]
 	end
 
 	def square_names
 		letters = ("A".."J").to_a
 		numbers = (1..10).to_a
-		@square_names = letters.map {|letter| numbers.map {|number| "#{letter}#{number}"}}
+		@square_names = letters.map  {|letter| numbers.map {|number| "#{letter}#{number}"}}
 	end
 
-	def coordinates
-		@coordinates
+	def grid
+		@grid
 	end
+
+	def shot(coordinate)
+	raise 'You already chose that coordinate.' if self.grid[coordinate].shot?
+
+		if self.grid[coordinate].occupied?
+			ship.delete(coordinate)
+			puts "Hit."
+			self.grid[coordinate].shot!
+		else
+			puts "Miss."
+			self.grid[coordinate].shot!
+		end
+	end
+
 end
-
