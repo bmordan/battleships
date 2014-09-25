@@ -29,14 +29,22 @@ module DeployShips
   end
 
   def check_column_space(ship,key)
-    row = key.slice(-1) # letter
+    row = key.slice(0) # letter
     row.ord < 74-ship.size ? true : false
   end
 
   def place_on_column(ship)
+    key = select_a_key
+    place_on_column(ship) if !check_column_space(ship,key)
+    location = []
+    row = key[0]
+    col = key.slice(1..-1)
+    (ship.size).times do
+      location << "#{row}#{col}"
+      row = row.next
+    end
+    location
 
   end
-
-
 
 end
