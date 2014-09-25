@@ -1,6 +1,6 @@
 class Square
 
-attr_accessor :occupied
+attr_accessor :occupied, :shot
 
 	def initialize
 		@occupied = false

@@ -27,4 +27,8 @@ class Board
 		end
 	end
 
+	def set_ship_coordinate(coordinate)
+		self.grid[coordinate].occupy
+	end
+
 end
