@@ -11,7 +11,6 @@ module DeployShips
   end
 
   def check_row_space(ship,key)
-    row = key[0]
     col = key.slice(1..-1)
     col.to_i < 10-ship.size ? true : false
   end

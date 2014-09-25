@@ -15,7 +15,7 @@ class Ship
   end
 
   def self.aircraft
-    Ship.new{:type => "Aircraft"}
+    Ship.new(:type => "Aircraft")
   end
 
 end
