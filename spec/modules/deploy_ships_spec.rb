@@ -29,7 +29,9 @@ describe Deploy do
     allow(ship).to receive(:size).and_return(4)
     allow(deploy.select_a_key).to receive(:size).and_return(4)
     location = deploy.place_on_row(ship)
-    expect(location[1]).to eq(location[0].next) 
+    first = location[0].slice(1..location[0].length)
+    second = location[1].slice(1..location[1].length)
+    expect(second).to eq(first.next) 
   end
 
   it "place_on_column should return sequential letters" do

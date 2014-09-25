@@ -1,10 +1,4 @@
-require_relative './modules/deploy_ships'
-
 class Ship
-
-  include DeployShips
-
-  #
 
   attr_accessor :belongs_to
   attr_accessor :size
