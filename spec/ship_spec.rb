@@ -10,7 +10,13 @@ describe Ship do
   end
 
   it "should belong to a player" do
-    expect(ship.belongs_to).to eq(:player)
+    ship.belongs_to = "Bob"
+    expect(ship.belongs_to).to eq("Bob")
+  end
+
+  it "should have a size" do
+    ship.size = 3
+    expect(ship.size).to eq(3)
   end
 
   # it "should have a correct type (1 of a possible 5)" do
