@@ -43,6 +43,12 @@ describe Deploy do
     allow(ship).to receive(:size).and_return(4)
     allow(deploy.select_a_key).to receive(:size).and_return(4)
     expect(deploy.check_column_space(ship,"H4")).to be false 
-  end  
+  end 
 
+  it "should return a valid set of coordiants" do
+    allow(ship).to receive(:size).and_return(4)
+    allow(deploy.select_a_key).to receive(:size).and_return(4)
+    expect(deploy.position_ship(ship)).to be_a(Array)
+  end 
+  
 end

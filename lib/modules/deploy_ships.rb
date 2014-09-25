@@ -20,7 +20,7 @@ module DeployShips
     place_on_row(ship) if !check_row_space(ship,key)
     location = []
     row = key[0]
-    col = key.slice(1..-1)
+    col = key.slice(1..key.length)
     (ship.size).times do
       location << "#{row}#{col}"
       col = col.next
@@ -38,13 +38,16 @@ module DeployShips
     place_on_column(ship) if !check_column_space(ship,key)
     location = []
     row = key[0]
-    col = key.slice(1..-1)
+    col = key.slice(1..key.length)
     (ship.size).times do
       location << "#{row}#{col}"
       row = row.next
     end
     location
+  end
 
+  def position_ship(ship)
+    direction == 'vertical' ? place_on_column(ship) : place_on_row(ship)
   end
 
 end

@@ -20,7 +20,13 @@ describe Ship do
   end
 
   it "can be initialized with a type of ship" do
-    expect(ship.type).to eq("Battleship")
+    battleship = Ship.battleship
+    expect(battleship.type).to eq("Battleship")
+  end
+
+  it "and size" do
+    patrol = Ship.patrol
+    expect(patrol.type).to eq("Patrol-Boat")
   end
 
   # Aircraft_Carrier = 5
