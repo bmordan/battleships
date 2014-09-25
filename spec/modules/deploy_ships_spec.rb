@@ -1,4 +1,4 @@
-require 'deploy_ships'
+require_relative '../../lib/modules/deploy_ships'
 
 class Deploy; include DeployShips; end
 
