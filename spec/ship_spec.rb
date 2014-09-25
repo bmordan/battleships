@@ -19,35 +19,9 @@ describe Ship do
     expect(ship.size).to eq(3)
   end
 
-  # it "should have a correct type (1 of a possible 5)" do
-  # end
-
-
-  # it "A ship cannot contain the same coordinate twice" do
-  # end
-
-  # it "Ships should not contain the same coordinate" do
-  # end
-
-  # it "Should create 5 ships per player when game starts" do
-  # end
-
-  # it "Aircraft_Carrier should be 5 squares in size" do
-  # end
-
-  # it "Battleship should be 4 squares in size" do
-
-  # end
-
-  # it "Submarine should be 3 squares in size" do
-  # end
-
-  # it "Destroyer should be 2 squares in size" do
-  # end
-
-  # it "Patrol_Boat should be 1 square in size" do
-  # end  
-
+  it "can be initialized with a type of ship" do
+    expect(ship.type).to eq("Battleship")
+  end
 
   # Aircraft_Carrier = 5
   # Battleship = 4
