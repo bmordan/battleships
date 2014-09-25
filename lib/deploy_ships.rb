@@ -17,9 +17,19 @@ module DeployShips
   end
 
   def place_on_row(ship)
+    location = []
     key = select_a_key
-    check_row_space(ship,key)
-
+    row = key[0]
+    col = key.slice(1..-1)
+    if check_row_space(ship,key)
+      (ship.size).times do
+        location << "#{row}#{col}"
+        col = col.next
+      end
+    else
+      place_on_row(ship)
+    end
+    location
   end
 
 

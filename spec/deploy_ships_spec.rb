@@ -19,5 +19,19 @@ describe Deploy do
     expect(deploy.check_row_space(ship,"C8")).to be false
   end
 
+  it "place_on_row should return an array of keys" do
+    allow(ship).to receive(:size).and_return(4)
+    allow(deploy.select_a_key).to receive(:size).and_return(4)
+    expect(deploy.place_on_row(ship)).to be_a(Array)
+  end
+
+  it "place_on_row should be a sequence of neighbouring keys" do    allow(ship).to receive(:size).and_return(4)
+    allow(ship).to receive(:size).and_return(4)
+    allow(deploy.select_a_key).to receive(:size).and_return(4)
+    location = deploy.place_on_row(ship)
+    sequencialKey = location[0].next
+    expect(location[1]).to eq(sequencialKey) 
+  end
+
 end
 
