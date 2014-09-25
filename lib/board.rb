@@ -18,7 +18,7 @@ class Board
 	raise 'You already chose that coordinate.' if self.grid[coordinate].shot?
 
 		if self.grid[coordinate].occupied?
-			ship.delete(coordinate)
+			player.delete(coordinate)
 			puts "Hit."
 			self.grid[coordinate].shot!
 		else

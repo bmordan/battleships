@@ -18,11 +18,6 @@ describe Player do
     expect(->(take_shot){}).to raise_error(ArgumentError)
   end
 
-  # it "should check that the coordinate is actually a coordinate" do
-  #   allow(board).to receive(:grid)
-  #   expect(player.take_shot(coordinate)).to eq(true)
-  # end
-
   it "should have a collection of ships" do
     expect(player.ships).to be_a(Array)
   end
@@ -39,6 +34,10 @@ describe Player do
   it "should have a default opponent called 'Other'" do
     new_no_name_set = Player.new
     expect(new_no_name_set.name).to eq("Other")
+  end
+
+  it "should display the players board" do
+    expect(player.show_grid).to eq('')
   end
 
 end

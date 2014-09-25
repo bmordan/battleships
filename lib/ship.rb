@@ -1,5 +1,9 @@
 class Ship
 
-  attr_reader = :size
+  attr_accessor :belongs_to
+
+  def location
+    @location ||= []
+  end
 
 end
