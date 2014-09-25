@@ -25,24 +25,12 @@ describe Deploy do
     expect(deploy.place_on_row(ship)).to be_a(Array)
   end
 
-  it "place_on_row should be a sequence of neighbouring keys" do
+  it "place_on_row should be a sequence of neighbouring keys" do    allow(ship).to receive(:size).and_return(4)
     allow(ship).to receive(:size).and_return(4)
     allow(deploy.select_a_key).to receive(:size).and_return(4)
     location = deploy.place_on_row(ship)
     expect(location[1]).to eq(location[0].next) 
   end
-
-  it "place_on_column should return an array of keys" do
-    allow(ship).to receive(:size).and_return(4)
-    allow(deploy.select_a_key).to receive(:size).and_return(4)
-    expect(deploy.place_on_column(ship)).to be_a(Array)
-  end
-
-  it "should return false if the ship would spill off a column" do
-    allow(ship).to receive(:size).and_return(4)
-    allow(deploy.select_a_key).to receive(:size).and_return(4)
-    expect(deploy.check_column_space(ship,"H4")).to be false 
-  end  
 
 end
 

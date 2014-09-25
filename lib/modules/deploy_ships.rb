@@ -11,6 +11,7 @@ module DeployShips
   end
 
   def check_row_space(ship,key)
+    row = key[0]
     col = key.slice(1..-1)
     col.to_i < 10-ship.size ? true : false
   end
@@ -26,15 +27,6 @@ module DeployShips
       col = col.next
     end
     location
-  end
-
-  def check_column_space(ship,key)
-    row = key.slice(-1) # letter
-    row.ord < 74-ship.size ? true : false
-  end
-
-  def place_on_column(ship)
-
   end
 
 
