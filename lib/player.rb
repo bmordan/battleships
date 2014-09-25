@@ -9,7 +9,7 @@ class Player
   
   def take_shot(coordinate)
     raise "given me a fkin coordinate!" if coordinate.nil?
-    coordinate
+    coordinategit
   end
 
   def ships
@@ -18,6 +18,10 @@ class Player
 
   def grid
     @grid ||= {}
+  end
+
+  def show_grid
+    show_this = ''
   end
 
 end
