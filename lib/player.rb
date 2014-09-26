@@ -9,6 +9,7 @@ class Player
   attr_accessor :name
 
   def initialize(options = {})
+    @grid = Board.new
     @name = options.fetch( :name, @name = "Other" )
     [ Ship.aircraft,
       Ship.battleship,
@@ -20,7 +21,7 @@ class Player
   
   def take_shot(coordinate)
     raise "given me a fkin coordinate!" if coordinate.nil?
-    # board.shoot(coordinate)
+    self.enemy.player_grid.shoot(coordinate)
   end
 
   def ships
@@ -28,7 +29,7 @@ class Player
   end
 
   def player_grid
-    @grid = Board.new
+    @grid
   end
 
   def show_grid

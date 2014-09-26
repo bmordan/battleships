@@ -45,4 +45,17 @@ describe Player do
     player.enemy = Player.new    
     expect(player.enemy.ships).class == Array
   end
+
+  it "enemy should also have a board" do
+    player.enemy = Player.new
+    expect(player.enemy.player_grid).to be_a(Board)
+  end
+
+  it "should be able to shoot the enemy's board" do
+    player.enemy = Player.new
+    expect(player.enemy.player_grid).to receive(:shoot)
+    player.take_shot(coordinate)
+  end
+
+
 end
