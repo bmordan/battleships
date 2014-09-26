@@ -57,5 +57,13 @@ describe Player do
     player.take_shot(coordinate)
   end
 
+  it "should share the ships in a flat array" do
+    expect(player.show_ships).to be_a(Array)
+  end
+
+  it "should share the ships in a flat array" do
+    expect(player.show_ships[0][0]).to be nil
+  end
+
 
 end

@@ -8,15 +8,17 @@ class Player
   attr_accessor :enemy
   attr_accessor :name
 
-  def initialize(options = {})
+  def initialize(name) #you have to initialize with a name Player.new("Bernard")
+    @name = name
     @grid = Board.new
-    @name = options.fetch( :name, @name = "Other" )
     [ Ship.aircraft,
       Ship.battleship,
       Ship.sub,
       Ship.destroyer,
       Ship.patrol
     ].each {|ship| ships << ship}
+    @ships.each {|ship| place_ship(ship)}
+    @ships.each {|ship| ship.belongs_to=@name}
   end
   
   def take_shot(coordinate)
@@ -24,8 +26,16 @@ class Player
     self.enemy.player_grid.shoot(coordinate)
   end
 
+################ is this a module? #########
+  
   def ships
     @ships ||= []
+  end
+
+  def show_ships
+    all_ship_coordinates = []
+    @ships.each {|ship| all_ship_coordinates << ship.location}
+    all_ship_coordinates.flatten
   end
 
   def player_grid
@@ -35,6 +45,8 @@ class Player
   def show_grid
     show_this = ''
   end
+################ is this a module? #########
+
 
   def hit(coordinate)
     self.enemy.ships.each do |ship| 
