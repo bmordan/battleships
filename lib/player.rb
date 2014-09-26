@@ -20,7 +20,7 @@ class Player
   
   def take_shot(coordinate)
     raise "given me a fkin coordinate!" if coordinate.nil?
-    board.shoot(coordinate)
+    # board.shoot(coordinate)
   end
 
   def ships
@@ -36,8 +36,8 @@ class Player
   end
 
   def hit(coordinate)
-    player.enemy.ships.each |ship| do 
-     ship.delete(coordinate) if ship.include?(coordinate)
+    self.enemy.ships.each do |ship| 
+     ship.location.delete(coordinate) if ship.location.include?(coordinate)
     end
   end
 

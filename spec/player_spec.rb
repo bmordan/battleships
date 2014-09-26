@@ -5,6 +5,7 @@ describe Player do
   let(:coordinate) { double :coordinate }
   let(:board     ) { double :board      }
   let(:player    ) { Player.new         }
+  let(:enemy_player) { Player.new }
 
   it "should have a name" do
     expect(player).to respond_to(:name)
@@ -40,4 +41,8 @@ describe Player do
     expect(player.show_grid).to eq('')
   end
 
+  it "should be able to affect enemy player" do
+    player.enemy = Player.new    
+    expect(player.enemy.ships).class == Array
+  end
 end

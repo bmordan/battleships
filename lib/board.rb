@@ -6,7 +6,7 @@ class Board
 
 	def square_names
 		letters = ("A".."J").to_a
-		numbers = (1..10).to_a
+		numbers = (1..10).to_a 
 		@square_names = letters.map  {|letter| numbers.map {|number| "#{letter}#{number}"}}
 	end
 
@@ -15,7 +15,7 @@ class Board
 	end
 
 	def shoot(coordinate)
-		raise 'You already chose that coordinate.' if self.grid[coordinate].shot?
+		raise 'You already chose that coordinate.' if grid[coordinate].shot?
 		grid[coordinate].shoot!
 		assess_shot(coordinate)
 	end
@@ -30,11 +30,7 @@ class Board
 	end
 
 	def set_ship_coordinate(coordinate)
-		raise 'That cell is already occupied.' if self.grid[coordinate].occupied?		
+		raise 'That cell is already occupied.' if grid[coordinate].occupied?		
 		grid[coordinate].occupy
 	end
 end
-
-board = Board.new
-board.square_names
-board.grid
