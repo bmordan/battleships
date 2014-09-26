@@ -29,8 +29,7 @@ describe Deploy do
     allow(ship).to receive(:size).and_return(4)
     allow(deploy.select_a_key).to receive(:size).and_return(4)
     location = deploy.place_on_row(ship)
-    sequencialKey = location[0].next
-    expect(location[1]).to eq(sequencialKey) 
+    expect(location[1]).to eq(location[0].next) 
   end
 
 end

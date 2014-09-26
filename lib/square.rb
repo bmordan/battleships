@@ -19,7 +19,7 @@ attr_accessor :occupied, :shot
 		@shot == true
 	end
 
-	def shot!
+	def shoot!
 		@shot = true
 	end
 

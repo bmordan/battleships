@@ -14,21 +14,27 @@ class Board
 		@grid
 	end
 
-	def shot(coordinate)
-	raise 'You already chose that coordinate.' if self.grid[coordinate].shot?
+	def shoot(coordinate)
+		raise 'You already chose that coordinate.' if self.grid[coordinate].shot?
+		grid[coordinate].shoot!
+		assess_shot(coordinate)
+	end
 
-		if self.grid[coordinate].occupied?
+	def assess_shot(coordinate)
+		if grid[coordinate].occupied?
 			player.delete(coordinate)
 			puts "Hit."
-			self.grid[coordinate].shot!
 		else
 			puts "Miss."
-			self.grid[coordinate].shot!
 		end
 	end
 
 	def set_ship_coordinate(coordinate)
-		self.grid[coordinate].occupy
+		raise 'That cell is already occupied.' if self.grid[coordinate].occupied?		
+		grid[coordinate].occupy
 	end
-
 end
+
+board = Board.new
+board.square_names
+board.grid

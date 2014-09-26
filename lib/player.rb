@@ -9,7 +9,7 @@ class Player
   
   def take_shot(coordinate)
     raise "given me a fkin coordinate!" if coordinate.nil?
-    coordinategit
+    coordinate
   end
 
   def ships
