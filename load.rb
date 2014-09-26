@@ -1,0 +1,6 @@
+require_relative './lib/player.rb'
+require_relative './lib/board.rb'
+require_relative './lib/square.rb'
+require_relative './lib/ship.rb'
+require_relative './lib/modules/deploy_ship.rb'
+require_relative './lib/modules/deploy_ships.rb'

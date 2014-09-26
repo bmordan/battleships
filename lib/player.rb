@@ -1,14 +1,21 @@
 require_relative './modules/deploy_ships'
+require_relative './ship'
 
 class Player
 
-  include DeployShips #'position_ship(ship)' will return ["E3","E4","E5"]
+  include DeployShips # => 
 
   attr_accessor :enemy
   attr_accessor :name
 
   def initialize(options = {})
     @name = options.fetch( :name, @name = "Other" )
+    [ Ship.aircraft,
+      Ship.battleship,
+      Ship.sub,
+      Ship.destroyer,
+      Ship.patrol
+    ].each {|ship| ships << ship}
   end
   
   def take_shot(coordinate)
