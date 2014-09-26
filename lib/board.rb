@@ -22,10 +22,10 @@ class Board
 
 	def assess_shot(coordinate)
 		if grid[coordinate].occupied?
-			player.delete(coordinate)
-			puts "Hit."
+			player.hit(coordinate)
+			puts "#{coordinate}: Hit."
 		else
-			puts "Miss."
+			puts "#{coordinate}: Miss."
 		end
 	end
 
