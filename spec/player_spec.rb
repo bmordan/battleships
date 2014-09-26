@@ -23,8 +23,8 @@ describe Player do
     expect(player.ships).to be_a(Array)
   end
 
-  it "should have a grid" do
-    expect(player.grid).to be_a(Hash)
+  it "should have a board grid" do
+    expect(player.player_grid).to be_a(Board)
   end
 
   it "should have an opponent" do

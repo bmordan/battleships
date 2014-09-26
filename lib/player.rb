@@ -27,8 +27,8 @@ class Player
     @ships ||= []
   end
 
-  def grid
-    @grid ||= {}
+  def player_grid
+    @grid = Board.new
   end
 
   def show_grid
